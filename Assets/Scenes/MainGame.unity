@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 2119326092946898252, guid: 06cdf4b1701ecd84c9d40ab45c277f01,
         type: 3}
       propertyPath: shot_rate_base
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2119326092946898253, guid: 06cdf4b1701ecd84c9d40ab45c277f01,
         type: 3}

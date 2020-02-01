@@ -30,11 +30,16 @@ public class GameController : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            /*if (enemy.ready_to_delete)
+            EnemyScript e_script = enemy.GetComponent<EnemyScript>();
+
+            if (e_script is object)
             {
-                GameObject.Destroy(enemy);
-                ProcessEnemyDrop();
-            }*/
+                if (e_script.ready_to_delete)
+                {
+                    GameObject.Destroy(enemy);
+                    ProcessEnemyDrop();
+                }
+            }
         }
     }
 

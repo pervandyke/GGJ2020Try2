@@ -22,7 +22,8 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (target is object)
+
+        if (target != null)
         {
             target_location = target.transform.position;
         }
