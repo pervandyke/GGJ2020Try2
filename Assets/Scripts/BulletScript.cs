@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour
     public Vector3 origin;
     public GameObject target;
     public Vector3 target_location;
-    public Effect effect;
+    public BulletEffects effect;
 
     public int damage;
     private float timer;
@@ -30,10 +30,15 @@ public class BulletScript : MonoBehaviour
 
         if (timer >= 1f)
         {
-            HitTarget();
+            if (target != null)
+            {
+                HitTarget();
+            }
+
+            GameObject.Destroy(this.gameObject);
         }
 
-        transform.position = Vector3.Lerp(origin, target.transform.position, timer);
+        transform.position = Vector3.Lerp(origin, target_location, timer);
     }
 
     void HitTarget()
@@ -44,7 +49,13 @@ public class BulletScript : MonoBehaviour
         {
             e_script.TakeDamage(damage);
         }
-
-        GameObject.Destroy(this.gameObject);
     }
 }
+
+public enum BulletEffects
+{
+    DAMAGE,
+    ACID,
+    SLOW
+}
+

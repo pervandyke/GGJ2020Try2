@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class AcidEffect : Effect
 {
-    private EnemyScript enemy;
+    private GameObject enemy;
+    private EnemyScript e_script;
     public float timer;
     public float timer_tick;
     public int damage_per_tick;
 
     private void Start()
     {
-        enemy = GetComponent<EnemyScript>();
+    }
+
+    public void AttachEnemy(GameObject a_enemy)
+    {
+        enemy = a_enemy;
+        e_script = enemy.GetComponent<EnemyScript>();
     }
 
     public override void ProcessEffect()
@@ -21,8 +27,11 @@ public class AcidEffect : Effect
         if (timer <= 0f)
         {
             timer += timer_tick;
-            enemy.TakeDamage(damage_per_tick);
-            Debug.Log("Ouch! I've taken " + damage_per_tick.ToString() + " damage!");
+            if (enemy != null)
+            {
+                e_script.TakeDamage(damage_per_tick);
+                Debug.Log("Ouch! I've taken " + damage_per_tick.ToString() + " damage!");
+            }
         }
 
         base.ProcessEffect();
