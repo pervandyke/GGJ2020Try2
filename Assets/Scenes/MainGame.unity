@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: state
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 244133451, guid: b9bbf82ce58798742b52e592bc1d7419, type: 3}
+      propertyPath: buildUI
+      value: 
+      objectReference: {fileID: 7366919033923990657}
     - target: {fileID: 7366919033831512776, guid: b9bbf82ce58798742b52e592bc1d7419,
         type: 3}
       propertyPath: m_Name
@@ -494,3 +498,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9bbf82ce58798742b52e592bc1d7419, type: 3}
+--- !u!1 &7366919033923990657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6656379019044427735, guid: b9bbf82ce58798742b52e592bc1d7419,
+    type: 3}
+  m_PrefabInstance: {fileID: 7366919033923990656}
+  m_PrefabAsset: {fileID: 0}

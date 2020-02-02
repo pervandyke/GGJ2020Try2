@@ -62,6 +62,11 @@ public class AvatarScript : MonoBehaviour
             {
                 state = AvatarState.BUILDING;
                 buildUI.SetActive(true);
+                GameObject UIButtons = Instantiate(Resources.Load("Prefabs/BuildUIButtons1") as GameObject);
+                UIButtons.transform.position = buildUI.transform.position;
+                UIButtons.transform.SetParent(buildUI.transform);
+                UIButtons.SetActive(true);
+                
             }
             else
             {
