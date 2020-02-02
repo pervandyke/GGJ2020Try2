@@ -13,10 +13,16 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1.0f;
+        speed = 1.5f;
         path = new List<Vector2>();
-        path.Add(new Vector2(0, 0));
-        path.Add(new Vector2(4, 5));
+        path.Add(new Vector2(-6, 0));
+        path.Add(new Vector2(-6, 3));
+        path.Add(new Vector2(-2, 3));
+        path.Add(new Vector2(-2, -3));
+        path.Add(new Vector2(2, -3));
+        path.Add(new Vector2(2, -1));
+        path.Add(new Vector2(6, -1));
+        path.Add(new Vector2(6, 2));
     }
 
     // Update is called once per frame
@@ -65,5 +71,10 @@ public class EnemyScript : MonoBehaviour
         {
             ready_to_delete = true;
         }
+    }
+
+    public void ApplyEffect(BulletEffects effect)
+    {
+
     }
 }

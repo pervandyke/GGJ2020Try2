@@ -12,6 +12,10 @@ public class AcidEffect : Effect
 
     private void Start()
     {
+        life_timer = 2f;
+        timer_tick = 0.5f;
+        timer = timer_tick;
+        damage_per_tick = 5;
     }
 
     public void AttachEnemy(GameObject a_enemy)
