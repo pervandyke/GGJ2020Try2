@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    // Game variables
     public List<GameObject> enemies;
+    public AvatarScript avatar;
+    public int ship_health;
+    public float launch_timer;
+    public bool is_launching;
 
     // Player Resources
     public int steel_count;
@@ -26,6 +31,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         enemies = new List<GameObject>();
+        ship_health = 500;
+        launch_timer = 30f;
 
         steel_count = 0;
         plastic_count = 0;
@@ -43,6 +50,15 @@ public class GameController : MonoBehaviour
     {
         GetEnemies();
         ProcessEnemies();
+
+        if (!is_launching)
+        {
+            ProcessLaunchStart();
+        }
+        else
+        {
+            ProcessLaunch();
+        }
     }
 
     void GetEnemies()
@@ -146,6 +162,31 @@ public class GameController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    void ProcessLaunchStart()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (avatar.is_touching_ship)
+            {
+                if (has_engine && has_cable && has_computer)
+                {
+                    is_launching = true;
+                    avatar.state = AvatarState.INACTIVE;
+                }
+            }
+        }
+    }
+
+    void ProcessLaunch()
+    {
+        launch_timer -= Time.deltaTime;
+
+        if (launch_timer <= 0f)
+        {
+            Debug.Log("You've won the game!");
         }
     }
 }

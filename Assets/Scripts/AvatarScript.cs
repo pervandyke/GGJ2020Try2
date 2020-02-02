@@ -7,6 +7,7 @@ public class AvatarScript : MonoBehaviour
     public AvatarState state; 
     public float speed;
     public GameObject buildUI;
+    public bool is_touching_ship;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,22 @@ public class AvatarScript : MonoBehaviour
                 state = AvatarState.ACTIVE;
                 buildUI.SetActive(false);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Pickup")
+        {
+            is_touching_ship = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Pickup")
+        {
+            is_touching_ship = false;
         }
     }
 }

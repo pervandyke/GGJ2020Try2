@@ -15,23 +15,28 @@ public class EnemyScript : MonoBehaviour
     {
         speed = 1.5f;
         path = new List<Vector2>();
-        path.Add(new Vector2(-6, 0));
-        path.Add(new Vector2(-6, 3));
-        path.Add(new Vector2(-2, 3));
-        path.Add(new Vector2(-2, -3));
-        path.Add(new Vector2(2, -3));
-        path.Add(new Vector2(2, -1));
-        path.Add(new Vector2(6, -1));
-        path.Add(new Vector2(6, 2));
+        path.Add(new Vector2(-5.5f, 0));
+        path.Add(new Vector2(-5.5f, 3));
+        path.Add(new Vector2(-2.5f, 3));
+        path.Add(new Vector2(-2.5f, -3));
+        path.Add(new Vector2(2.5f, -3));
+        path.Add(new Vector2(2.5f, -1));
+        path.Add(new Vector2(6.5f, -1));
+        path.Add(new Vector2(6.5f, 2));
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessEffects();
+
         if (path.Count != 0)
         {
             ProcessMove();
+        }
+        else
+        {
+
         }
     }
 
